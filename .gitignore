@@ -114,5 +114,4 @@ dmypy.json
 .pyre/
 
 # Data
-Data/
-Out/
+*.fa
