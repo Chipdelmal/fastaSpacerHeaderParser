@@ -1,8 +1,18 @@
 # Fasta "Spacer" Parser
 
 
-# Specifications
+## Instructions
 
+Having python 3.7 installed, move to the folder containing the scripts definition.
+Once there, the code can be run either with the "main.py" routine by changing the work paths, or it can be called directly from the terminal with the following command:
+
+```bash
+python fastaParser.py "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Data/" "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Out/"
+```
+
+Where the first argument is the folder where the data is stored, and the second folder is the path where the concatenated files will be saved.
+
+## Specifications
 
 Merge:
 * __MN184_CRISPR3spacer.fa__

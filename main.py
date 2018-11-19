@@ -3,6 +3,7 @@
 # Description:
 #############################################################################
 
+import sys
 import functions as parser
 
 PATH = "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Data/"

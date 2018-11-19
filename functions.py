@@ -82,15 +82,16 @@ def exportFAFiles(
 
 def parseAndMergeFASTAFilesInPath(path, outputPath):
     filepaths = readFilepaths(path, extension=".fa")
-    filenames = getFilenamesFromPaths(filepaths)
-    identifiers = getUniqueIdentifiers(filenames, separator="_")
-    matchedIndices = getIdentifierToFilenamesMatches(
-        filenames, identifiers
-    )
-    exportFAFiles(
-        outputPath,
-        identifiers,
-        matchedIndices,
-        filepaths,
-        filenames
-    )
+    if(len(filepaths) > 0):
+        filenames = getFilenamesFromPaths(filepaths)
+        identifiers = getUniqueIdentifiers(filenames, separator="_")
+        matchedIndices = getIdentifierToFilenamesMatches(
+            filenames, identifiers
+            )
+        exportFAFiles(
+            outputPath,
+            identifiers,
+            matchedIndices,
+            filepaths,
+            filenames
+        )
