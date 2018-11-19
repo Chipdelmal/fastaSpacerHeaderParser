@@ -5,22 +5,19 @@
 
 import functions as parser
 
-PATH = "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Data"
+PATH = "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Data/"
+OUTPUT_PATH = "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderParser/Out/"
+
+parsers.parseAndMergeFASTAFilesInPath(PATH, OUTPUT_PATH)
 
 filepaths = parser.readFilepaths(PATH, extension=".fa")
 filenames = parser.getFilenamesFromPaths(filepaths)
 identifiers = parser.getUniqueIdentifiers(filenames, separator="_")
 matchedIndices = parser.getIdentifierToFilenamesMatches(filenames, identifiers)
-
-
-nameFile = identifiers[0] + "_CRISPRspacer.fa"
-indicesList = matchedIndices[0]
-open()
-generateExportStringFromMatchedIndices(indicesList)
-
-def generateExportStringFromMatchedIndices(matchedIndices):
-    fileString = ""
-    for i in indicesList:
-        fileString = fileString + \
-            parser.changeSpacerTagInFile(filepaths[i], filenames[i])
-    return fileString
+parser.exportFAFiles(
+    OUTPUT_PATH,
+    identifiers,
+    matchedIndices,
+    filepaths,
+    filenames
+)

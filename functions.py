@@ -61,5 +61,50 @@ def changeSpacerTagInFile(filepath, filename):
                 printLine = readLine + "_" + nametag
             else:
                 printLine = readLine
-            returnString = returnString + printLine + "\n\r"
+            returnString = returnString + printLine + "\n"
     return returnString
+
+
+def generateExportStringFromMatchedIndices(
+    filepaths,
+    filenames,
+    matchedIndices
+):
+    fileString = ""
+    for i in matchedIndices:
+        fileString = fileString + \
+            changeSpacerTagInFile(filepaths[i], filenames[i])
+    return fileString
+
+
+def exportFAFiles(
+    outputPath,
+    identifiers,
+    matchedIndices,
+    filepaths,
+    filenames
+):
+    for i, identifier in enumerate(identifiers):
+        nameFile = outputPath + identifiers[i] + "_CRISPRspacer.fa"
+        indicesList = matchedIndices[i]
+        with open(nameFile, "w") as file:
+            file.write(generateExportStringFromMatchedIndices(
+                    filepaths, filenames, indicesList
+                )
+            )
+
+
+def parseAndMergeFASTAFilesInPath(path, outputPath):
+    filepaths = readFilepaths(path, extension=".fa")
+    filenames = getFilenamesFromPaths(filepaths)
+    identifiers = getUniqueIdentifiers(filenames, separator="_")
+    matchedIndices = getIdentifierToFilenamesMatches(
+        filenames, identifiers
+    )
+    exportFAFiles(
+        outputPath,
+        identifiers,
+        matchedIndices,
+        filepaths,
+        filenames
+    )
