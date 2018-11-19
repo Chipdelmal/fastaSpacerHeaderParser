@@ -13,6 +13,14 @@ identifiers = parser.getUniqueIdentifiers(filenames, separator="_")
 matchedIndices = parser.getIdentifierToFilenamesMatches(filenames, identifiers)
 
 
-file = open(filepaths[0], "r")
-read=file.read()
-read.replace(">spacer","")
+nameFile = identifiers[0] + "_CRISPRspacer.fa"
+indicesList = matchedIndices[0]
+open()
+generateExportStringFromMatchedIndices(indicesList)
+
+def generateExportStringFromMatchedIndices(matchedIndices):
+    fileString = ""
+    for i in indicesList:
+        fileString = fileString + \
+            parser.changeSpacerTagInFile(filepaths[i], filenames[i])
+    return fileString

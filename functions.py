@@ -49,3 +49,17 @@ def getIdentifierToFilenamesMatches(filenames, identifiers):
         matchingIndices = checkIdentifierForMatches(filenames, id)
         matchedIndices.append(matchingIndices)
     return matchedIndices
+
+
+def changeSpacerTagInFile(filepath, filename):
+    nametag = filename.replace("_", "").replace("spacer.fa", "")
+    returnString = ""
+    with open(filepath) as file:
+        for i, readLine in enumerate(file):
+            readLine = readLine.rstrip('\n\r')
+            if ">" in readLine:
+                printLine = readLine + "_" + nametag
+            else:
+                printLine = readLine
+            returnString = returnString + printLine + "\n\r"
+    return returnString
