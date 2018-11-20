@@ -35,3 +35,7 @@ into:
 ```
 
 for the __MN184___ example.
+
+## Author
+
+[PhD Héctor Manuel Sánchez Castellanos](http://chipdelmal.github.io)
