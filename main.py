@@ -1,6 +1,8 @@
 #############################################################################
 # Main routine for the ad hoc fasta files parser
-# Description:
+# Description: Read the specifications for the objective of the script.
+#   This routine runs from a python terminal, for the bash version, open
+#   "fastaParser.py"
 #############################################################################
 
 import sys
