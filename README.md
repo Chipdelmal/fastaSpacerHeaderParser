@@ -12,6 +12,10 @@ python fastaParser.py "/Users/sanchez.hmsc/Documents/GitHub/fastaSpacerHeaderPar
 
 Where the first argument is the folder where the data is stored, and the second folder is the path where the concatenated files will be saved.
 
+## Important Note
+
+Please make a backup copy of the data before using the script. Whilst this should not cause any data loss, it is highly recommended to have an extra copy to avoid any problems.
+
 ## Specifications
 
 Merge:
